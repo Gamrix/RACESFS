@@ -7,10 +7,8 @@ $HOSTNAME = 'php.cs.ucsb.edu'
 */
 
 node default{
-  include '::ntp'
   class {'::ntp':
     servers => ['128.111.1.5', '128.111.1.6'],
-    ensure => 'present'
   }
 
   package {'openssh-server':
@@ -19,7 +17,7 @@ node default{
 
   file { '/etc/selinux/config' :
     ensure => file,
-    source => 'puppet:///modules/eucalyptus/selinux.config.original'
+    source => 'puppet:///modules/selinux/selinux.config.original'
   }
 
   exec { '/usr/sbin/setenforce 0' :

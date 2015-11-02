@@ -20,6 +20,16 @@ node default{
     source => 'puppet:///modules/selinux/selinux.config.original'
   }
 
+  file { '/etc/rc.local' :
+    ensure => file,
+    source => 'puppet:///modules/selinux/rclocal.config.original'
+  }
+
+  file { '/etc/hosts.allow' :
+    ensure => file,
+    source => 'puppet:///modules/network/hostsallow.config.original'
+  }
+
   exec { '/usr/sbin/setenforce 0' :
     onlyif => '/usr/bin/test `/usr/sbin/getenforce` == Enabled'
   }

@@ -7,6 +7,7 @@ $HOSTNAME = 'php.cs.ucsb.edu'
 */
 
 node default{
+  include '::ntp'
   class {'::ntp':
     servers => ['128.111.1.5', '128.111.1.6'],
     ensure => 'present'

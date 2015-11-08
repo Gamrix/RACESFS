@@ -1,0 +1,16 @@
+#!/bin/bash
+# read http://git-scm.com/book/en/v2/Getting-Started-Installing-Git for info
+
+sudo yum install -y curl-devel expat-devel gettext-devel openssl-devel perl-devel zlib-devel
+sudo yum install -y epel-release
+sudo yum install -y asciidoc xmlto docbook2X
+sudo ln -s /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi
+
+wget https://github.com/git/git/archive/v2.4.10.tar.gz
+
+tar -zxf git-2.4.10.tar.gz
+cd git-2.4.10
+make configure
+./configure --prefix=/usr
+make all doc info
+sudo make install install-doc install-html install-info

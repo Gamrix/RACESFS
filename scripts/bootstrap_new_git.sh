@@ -19,7 +19,7 @@ cd git-2.4.10
 make configure
 ./configure --prefix=/usr
 make all doc info
-sudo make install install-doc install-html install-info
+# sudo make install install-doc install-html install-info
 cd ../..
 rm -rf git-src
 

@@ -18,8 +18,10 @@ tar -zxf v2.4.10.tar.gz
 cd git-2.4.10
 make configure
 ./configure --prefix=/usr
-make all doc info
-# sudo make install install-doc install-html install-info
+make all
+# make doc info
+sudo make install 
+# sudo make install-doc install-html install-info
 cd ../..
 rm -rf git-src
 
